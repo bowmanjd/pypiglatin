@@ -6,22 +6,21 @@ import json
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
-SERVER = "api.funtranslations.com"
 
-
-def translate(text: str) -> str:
+def translate(text: str, server: str = "api.funtranslations.com") -> str:
     """
     Translate text to pig Latin.
 
     Args:
         text: the text to translate
+        server: the API server domain
 
     Returns:
         Translated text
     """
     data = {"text": text}
     form_encoded_data = urlencode(data).encode()
-    url = f"https://{SERVER}/translate/piglatin.json"
+    url = f"https://{server}/translate/piglatin.json"
     with urlopen(url, form_encoded_data) as response:
         result = json.load(response)
         print(result)

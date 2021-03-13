@@ -10,7 +10,6 @@ import pypiglatin
 
 SERVER = "localhost"
 PORT = 8888
-pypiglatin.SERVER = f"{SERVER}:{PORT}"
 
 ENDPOINT = "/translate/piglatin.json"
 
@@ -37,7 +36,7 @@ def httpserver_ssl_context():
     return server_context
 
 
-def test_https_post(httpserver):
+def test_post(httpserver):
     text = "Thank you for your hospitality"
     translated = "ank-Thay ou-yay or-fay our-yay ospitality-hay "
     response = {
@@ -52,4 +51,4 @@ def test_https_post(httpserver):
     httpserver.expect_request(
         ENDPOINT, method="POST", data=urlencode({"text": text})
     ).respond_with_json(response)
-    assert pypiglatin.translate(text) == translated
+    assert pypiglatin.translate(text, f"{SERVER}:{PORT}") == translated

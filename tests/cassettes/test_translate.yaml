@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: text=Thank+you+for+your+hospitality
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '35'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.funtranslations.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: POST
+    uri: https://api.funtranslations.com/translate/piglatin.json
+  response:
+    body:
+      string: "{\n    \"success\": {\n        \"total\": 1\n    },\n    \"contents\":
+        {\n        \"translated\": \"ank-Thay ou-yay or-fay our-yay ospitality-hay
+        \",\n        \"text\": \"Thank you for your hospitality\",\n        \"translation\":
+        \"pig-latin\"\n    }\n}"
+    headers:
+      Cache-Control:
+      - max-age={expires}, pre-check=86400, post-check=43200
+      Connection:
+      - Upgrade, close
+      Content-Language:
+      - en
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 13 Mar 2021 13:43:32 GMT
+      Expires:
+      - '0'
+      Server:
+      - Apache
+      Transfer-Encoding:
+      - chunked
+      Upgrade:
+      - h2
+      Vary:
+      - User-Agent
+      X-Auth-Status:
+      - 'true'
+      X-Powered-By:
+      - Luracast Restler v3.0.0rc3
+      X-RateLimit-Limit:
+      - 5 per hour
+      X-RateLimit-Remaining:
+      - '5'
+    status:
+      code: 200
+      message: OK
+version: 1
